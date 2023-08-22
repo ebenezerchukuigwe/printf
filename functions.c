@@ -51,12 +51,12 @@ int _printf(const char *format, ...)
 		format++;
 	}
 	va_end(args);
-	return charCount;
+	return (charCount);
 }
 
 int main(void)
 {
 	_printf("Hello, %s! The character is %c. The number is %d and %i. Here's a percent sign %%.\n", "world", 'A', 42, -123);
-	return 0;
+	return (0);
 }
 
