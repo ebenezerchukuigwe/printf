@@ -5,17 +5,17 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	va_start(args, format);
-
-	int charCount = 0; /* To keep track of the number of characters printed */
-
+	int charCount = 0;
+	/* To keep track of the number of characters printed */
 	while (*format != '\0')
 	{
-		if (*format == '%') {
-		format++; /* Move past '%' */
+		if (*format == '%')
+		{
+		format++;/* Move past '%' */
 
 		/* Handle conversion specifiers */
 		switch (*format)
-		{
+			{
 			case 'c':
 				charCount += putchar(va_arg(args, int));
 				break;
@@ -33,7 +33,8 @@ int _printf(const char *format, ...)
 			case 'i':
 				{
 					  int num = va_arg(args, int);
-					  charCount += printf("%d", num); /* Using printf to handle integer printing */
+					  charCount += printf("%d", num);
+					  /* Using printf to handle integer printing */
 					  break;
 				}
 			case '%':
@@ -42,7 +43,7 @@ int _printf(const char *format, ...)
 			default:
 				/* Ignore unknown specifiers */
 				break;
-		}
+			}
 		}
 		else
 		{
@@ -51,12 +52,10 @@ int _printf(const char *format, ...)
 		format++;
 	}
 	va_end(args);
-	return charCount;
+	return (charCount);
 }
-
 int main(void)
 {
 	_printf("Hello, %s! The character is %c. The number is %d and %i. Here's a percent sign %%.\n", "world", 'A', 42, -123);
-	return 0;
+	return (0);
 }
-
